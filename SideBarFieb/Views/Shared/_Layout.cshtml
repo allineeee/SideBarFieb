@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SideBarFieb</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SideBarFieb.styles.css" asp-append-version="true" />
+
+    @* para a sidebar não ficar piscando *@
+
+    <script>
+        (function () {
+            try {
+                var collapsed = localStorage.getItem("sidebarCollapsed");
+                if (collapsed === "true") {
+                    document.documentElement.classList.add("sidebar-collapsed");
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+<body>
+    <div id="sidebar" class="sidebar d-flex flex-column">
+
+        <!-- TOPO -->
+        <div class="sidebar-header text-center py-3">
+            <strong>SideBarFieb</strong>
+        </div>
+
+        <!-- MENU -->
+        <ul class="nav nav-pills flex-column mb-auto px-2">
+            <li class="nav-item">
+                <a class="nav-link active" asp-controller="Home" asp-action="Index">
+                    🏠 <span class="menu-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="Privacy">
+                    🔒 <span class="menu-text">Privacy</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="UAB" asp-action="Index">
+                    🔒 <span class="menu-text">UAB</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- FOOTER DA SIDEBAR -->
+        <div class="sidebar-footer p-2">
+            <button id="toggleSidebar" class="btn btn-outline-secondary w-100">
+                ⬅ Recolher
+            </button>
+        </div>
+    </div>
+    <header class="cabecalho">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">SideBarFieb</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="conteudo" class="conteudo px-3 bg-info">
+        @RenderBody()
+    </main>
+        
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "UAB";
+    var paragrafos = ViewData["Texto"].ToString().Split("\n");
+}
+
+<div class=" bg-success">
+    <h2>titulo</h2>
+    <a class="bg-light" asp-controller="UAB" asp-action="Index" asp-route-parametro="">texto 1</a>
+    <a class="bg-light" asp-controller="UAB" asp-action="Index" asp-route-parametro="texto_2">texto 2</a>
+    <a class="bg-light" asp-controller="UAB" asp-action="Index" asp-route-parametro="texto_3">texto 3</a>
+    <a class="bg-light" asp-controller="UAB" asp-action="Index" asp-route-parametro="texto_4">texto 4</a>
+    
+    @foreach (var paragrafo in paragrafos)
+    {
+        <p>@paragrafo</p>
+    }
+</div>

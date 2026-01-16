@@ -1,0 +1,60 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+
+body {
+  margin-bottom: 60px;
+
+}
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    z-index: 1050;
+    transition: width 0.3s;
+}
+
+/* HEADER */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 240px; /* acompanha a sidebar aberta */
+    right: 0;
+    height: 56px; /* altura padrão do navbar bootstrap */
+    z-index: 1040;
+    background-color: #fff;
+    transition: left 0.3s;
+}
+
+/* CONTENT */
+.conteudo {
+    margin-left: 240px;
+    transition: margin-left 0.3s;
+    padding-top: 100px;
+}
+
+/* COLAPSADA — aplicada ANTES do render */
+.sidebar-collapsed .sidebar {
+    width: 70px;
+}
+
+.sidebar-collapsed .menu-text {
+    display: none;
+}
+.sidebar-collapsed .cabecalho {
+    left: 70px;
+}
+
+
+ 
+.sidebar-collapsed .conteudo {
+    margin-left: 70px;
+}
